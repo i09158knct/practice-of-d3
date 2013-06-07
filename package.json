@@ -1,0 +1,10 @@
+{
+  "name": "practice-of-d3",
+  "version": "0.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-exec": "~0.4.1",
+    "grunt-regarde": "~0.1.1",
+    "grunt-contrib-livereload": "~0.1.2"
+  }
+}
