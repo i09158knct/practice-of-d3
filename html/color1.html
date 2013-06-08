@@ -65,12 +65,7 @@ var cities = svg.append('g')
 
 d3.json('/data/city/kagawa.json', function(err, citiesJSON) {
   if (err) {throw err}
-  window.cityTable = (function _createCityTable() {
-    return citiesJSON.reduce(function(acc, city) {
-      acc[city['city_name']] = city;
-      return acc;
-    }, {});
-  })();
+  window.cityTable = buildCityTable(citiesJSON);
 
   d3.json('/data/geo/kagawa0.001.json', function(err, json) {
     if (err) {throw err}
@@ -88,23 +83,23 @@ d3.json('/data/city/kagawa.json', function(err, citiesJSON) {
 
 });
 
+function buildCityTable(citiesJSON) {
+  return citiesJSON.reduce(function(acc, city) {
+    acc[city['city_name']] = city;
+    return acc;
+  }, {});
+}
 
 function getCityName(datum) {
   return datum.properties['N03_004'];
 }
 
-function getRandomColor() {
-  return d3.rgb(
-    Math.random() * 256,
-    Math.random() * 256,
-    Math.random() * 256
-  ).toString()
-}
-
 function colorize(cityTable) {
+  var i = 0;
+  var colors = d3.scale.category20().range();
   _.each(cityTable, function(details) {
     d3.selectAll('.' + details['romaji'])
-      .style('fill', getRandomColor());
+      .style('fill', colors[i++]);
   });
 }
 
