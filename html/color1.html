@@ -64,11 +64,9 @@ var cities = svg.append('g')
   .attr('id', 'cities')
 
 d3.json('/data/city/kagawa.json', function(err, citiesJSON) {
-  if (err) {throw err}
   window.cityTable = buildCityTable(citiesJSON);
 
   d3.json('/data/geo/kagawa0.001.json', function(err, json) {
-    if (err) {throw err}
     cities.selectAll('path')
       .data(json.features)
       .enter()

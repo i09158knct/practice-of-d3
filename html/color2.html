@@ -64,8 +64,6 @@ var cities = svg.append('g')
   .attr('id', 'cities')
 
 d3.json('/data/geo/kagawa0.001.json', function(err, json) {
-  if (err) {throw err}
-
   var groups = _.values(_.groupBy(json.features, function(f) {
     return f.properties['N03_004']
   }));
