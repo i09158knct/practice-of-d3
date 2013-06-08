@@ -75,7 +75,8 @@ var cities = svg.append('g')
   .attr('id', 'cities')
   .call(zoom);
 
-d3.json('/data/geo/kagawa0.001.json', function(json) {
+d3.json('/data/geo/kagawa0.001.json', function(err, json) {
+  if (err) {throw err}
   cities.selectAll('path')
     .data(json.features)
     .enter()

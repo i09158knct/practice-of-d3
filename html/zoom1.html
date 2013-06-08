@@ -66,7 +66,8 @@ var g = svg.append('g')
   .append('g')
     .attr('id', 'cities');
 
-d3.json('/data/geo/kagawa0.001.json', function(geojson) {
+d3.json('/data/geo/kagawa0.001.json', function(err, geojson) {
+  if (err) {throw err}
   g.selectAll('path')
     .data(geojson.features)
     .enter()

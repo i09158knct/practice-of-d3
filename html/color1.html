@@ -71,7 +71,8 @@ var cities = svg.append('g')
   .attr('id', 'cities')
   .call(zoom);
 
-d3.json('/data/city/kagawa.json', function(citiesJSON) {
+d3.json('/data/city/kagawa.json', function(err, citiesJSON) {
+  if (err) {throw err}
   window.cityTable = (function _createCityTable() {
     return citiesJSON.reduce(function(acc, city) {
       acc[city['city_name']] = city;
@@ -79,7 +80,8 @@ d3.json('/data/city/kagawa.json', function(citiesJSON) {
     }, {});
   })();
 
-  d3.json('/data/geo/kagawa0.001.json', function(json) {
+  d3.json('/data/geo/kagawa0.001.json', function(err, json) {
+    if (err) {throw err}
     cities.selectAll('path')
       .data(json.features)
       .enter()
