@@ -66,7 +66,7 @@ var cities = svg.append('g')
 d3.json('/data/geo/kagawa0.001.json', function(err, json) {
   if (err) {throw err}
 
-  var groups = _.pairs(_.groupBy(json.features, function(f) {
+  var groups = _.values(_.groupBy(json.features, function(f) {
     return f.properties['N03_004']
   }));
 
@@ -78,7 +78,7 @@ d3.json('/data/geo/kagawa0.001.json', function(err, json) {
     .append('g')
       .style('fill', function(d, i) { return colors[i] })
       .selectAll('path')
-        .data(function(datum) { return datum[1] })
+        .data(function(features) { return features })
         .enter()
         .append('path')
           .attr('d', path)
