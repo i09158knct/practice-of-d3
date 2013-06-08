@@ -62,10 +62,7 @@ svg.append('rect')
   .attr('height', height);
 
 var g = svg.append('g')
-  .attr(
-    'transform',
-    _s.sprintf('translate(%f,%f)', width / 2, height / 2)
-  )
+  .attr('transform', _s.sprintf('translate(%f,%f)', width / 2, height / 2))
   .append('g')
     .attr('id', 'cities');
 
@@ -102,10 +99,9 @@ function click(datum) {
   // to colorize same city's island
   var clickedCityName = getCityName(datum);
   g.selectAll('path')
-    .classed(
-      'active',
-      centeredCity && function(datum) { return getCityName(datum) === clickedCityName }
-    );
+    .classed('active', centeredCity && function(datum) {
+      return getCityName(datum) === clickedCityName
+    });
 
   g.transition()
     .duration(500)

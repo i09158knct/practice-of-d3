@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>D3</title>
+  <style>
+
+  svg {
+    border: solid 1px #ccc;
+  }
+
+  .background {
+    fill: none;
+    pointer-events: all;
+  }
+
+  #cities {
+    fill: #aaa;
+    stroke: #fff;
+    stroke-width: 1.5px;
+  }
+
+  #cities .active {
+    fill: #77a;
+  }
+
+  </style>
+  <script src="js/vendor/d3.js"></script>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/underscore.js"></script>
+  <script src="js/vendor/underscore.string.js"></script>
+  <script src="js/vendor/backbone.js"></script>
+  <script src="js/vendor/coffee-script.js"></script>
+  <script>
+    window._s = _.string;
+  </script>
+</head>
+<body>
+<div class="main" id="main">
+  <svg class="map"></svg>
+  <ul class="monitor">
+    <li>scale: <span id="scale"></span></li>
+    <li>translate: <span id="translate"></span></li>
+  </ul>
+</div>
+<script>
+var width = 700;
+var height = 470;
+
+var projection = d3.geo.mercator()
+  .scale(40000)
+  .translate([width / 2, height / 2]);
+
+projection.center([133.947083, 34.288472]);
+
+var path = d3.geo.path().projection(projection);
+
+var zoom = d3.behavior.zoom()
+  .translate(projection.translate())
+  .scale(projection.scale())
+  .scaleExtent([25000, 100000])
+  .on('zoom', zoommove);
+
+var svg = d3.select('#main .map')
+  .attr('width', width)
+  .attr('height', height);
+
+svg.append('rect')
+  .attr('class', 'background')
+  .attr('width', width)
+  .attr('height', height)
+  .call(zoom);
+
+var cities = svg.append('g')
+  .attr('id', 'cities')
+  .call(zoom);
+
+d3.json('../data/geo/kagawa0.001.json', function(json) {
+  cities.selectAll('path')
+    .data(json.features)
+    .enter()
+    .append('path')
+      .attr('d', path);
+});
+
+
+var $scale = $('#scale');
+var $translate = $('#translate');
+function zoommove() {
+  projection.translate(d3.event.translate).scale(d3.event.scale);
+  cities.selectAll("path").attr("d", path);
+
+  $scale.text(projection.scale());
+  $translate.text(projection.translate());
+}
+
+</script>
+</body>
+</html>
