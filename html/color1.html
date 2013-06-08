@@ -51,12 +51,6 @@ projection.center([133.947083, 34.288472]);
 
 var path = d3.geo.path().projection(projection);
 
-var zoom = d3.behavior.zoom()
-  .translate(projection.translate())
-  .scale(projection.scale())
-  .scaleExtent([25000, 100000])
-  .on('zoom', zoommove);
-
 var svg = d3.select('#main .map')
   .attr('width', width)
   .attr('height', height);
@@ -65,11 +59,9 @@ svg.append('rect')
   .attr('class', 'background')
   .attr('width', width)
   .attr('height', height)
-  .call(zoom);
 
 var cities = svg.append('g')
   .attr('id', 'cities')
-  .call(zoom);
 
 d3.json('/data/city/kagawa.json', function(err, citiesJSON) {
   if (err) {throw err}
@@ -95,12 +87,6 @@ d3.json('/data/city/kagawa.json', function(err, citiesJSON) {
   });
 
 });
-
-
-function zoommove() {
-  projection.translate(d3.event.translate).scale(d3.event.scale);
-  cities.selectAll("path").attr("d", path);
-}
 
 
 function getCityName(datum) {
