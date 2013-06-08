@@ -1,0 +1,87 @@
+[
+  {
+    "city_name": "高松市",
+    "area": 375.14,
+    "population": 424.490
+  },
+  {
+    "city_name": "丸亀市",
+    "area": 111.79,
+    "population": 112.173
+  },
+  {
+    "city_name": "坂出市",
+    "area": 92.46,
+    "population": 56.351
+  },
+  {
+    "city_name": "善通寺市",
+    "area": 39.88,
+    "population": 33.419
+  },
+  {
+    "city_name": "観音寺市",
+    "area": 117.47,
+    "population": 63.349
+  },
+  {
+    "city_name": "さぬき市",
+    "area": 158.90,
+    "population": 52.637
+  },
+  {
+    "city_name": "東かがわ市",
+    "area": 153.35,
+    "population": 34.243
+  },
+  {
+    "city_name": "三豊市",
+    "area": 222.66,
+    "population": 69.812
+  },
+  {
+    "city_name": "土庄町",
+    "area": 74.39,
+    "population": 15.557
+  },
+  {
+    "city_name": "小豆島町",
+    "area": 95.63,
+    "population": 16.221
+  },
+  {
+    "city_name": "三木町",
+    "area": 75.78,
+    "population": 28.809
+  },
+  {
+    "city_name": "直島町",
+    "area": 14.23,
+    "population": 3.223
+  },
+  {
+    "city_name": "宇多津町",
+    "area": 8.07,
+    "population": 17.549
+  },
+  {
+    "city_name": "綾川町",
+    "area": 109.67,
+    "population": 25.150
+  },
+  {
+    "city_name": "琴平町",
+    "area": 8.46,
+    "population": 10.060
+  },
+  {
+    "city_name": "多度津町",
+    "area": 24.34,
+    "population": 23.590
+  },
+  {
+    "city_name": "まんのう町",
+    "area": 194.33,
+    "population": 19.855
+  }
+]

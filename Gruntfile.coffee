@@ -42,6 +42,7 @@ module.exports = (grunt) ->
       'html/js/vendor': [
         'components/backbone/backbone.js'
         'components/underscore/underscore.js'
+        'components/underscore.string/lib/underscore.string.js'
         'components/jquery/jquery.js'
         'components/d3/d3.js'
         'components/coffee-script/extras/coffee-script.js'
