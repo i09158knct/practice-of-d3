@@ -25,12 +25,12 @@
   }
 
   </style>
-  <script src="js/vendor/d3.js"></script>
-  <script src="js/vendor/jquery.js"></script>
-  <script src="js/vendor/underscore.js"></script>
-  <script src="js/vendor/underscore.string.js"></script>
-  <script src="js/vendor/backbone.js"></script>
-  <script src="js/vendor/coffee-script.js"></script>
+  <script src="/html/js/vendor/d3.js"></script>
+  <script src="/html/js/vendor/jquery.js"></script>
+  <script src="/html/js/vendor/underscore.js"></script>
+  <script src="/html/js/vendor/underscore.string.js"></script>
+  <script src="/html/js/vendor/backbone.js"></script>
+  <script src="/html/js/vendor/coffee-script.js"></script>
   <script>
     window._s = _.string;
   </script>
@@ -66,7 +66,7 @@ var g = svg.append('g')
   .append('g')
     .attr('id', 'cities');
 
-d3.json('../data/geo/kagawa0.001.json', function(geojson) {
+d3.json('/data/geo/kagawa0.001.json', function(geojson) {
   g.selectAll('path')
     .data(geojson.features)
     .enter()
