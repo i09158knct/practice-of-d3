@@ -97,12 +97,12 @@ function buildCityTable(citiesJSON) {
 }
 
 function buildColorScale(citiesJSON) {
-  var pops = _.pluck(citiesJSON, 'area');
-  var min = Math.min.apply(Math, pops);
-  var max = Math.max.apply(Math, pops);
+  var areas = _.pluck(citiesJSON, 'area');
+  var min = Math.min.apply(Math, areas);
+  var max = Math.max.apply(Math, areas);
   return d3.scale.linear()
     .domain([min,max])
-    .range(['blue', 'red']);
+    .range(['black', 'red']);
 }
 
 </script>
