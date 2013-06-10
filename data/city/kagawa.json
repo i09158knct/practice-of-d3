@@ -3,102 +3,119 @@
     "city_name": "高松市",
     "romaji": "takamatsu",
     "area": 375.14,
-    "population": 424.490
+    "population": 424.490,
+    "location": [134.046574, 34.342788]
   },
   {
     "city_name": "丸亀市",
     "romaji": "marugame",
     "area": 111.79,
-    "population": 112.173
+    "population": 112.173,
+    "location": [133.797706, 34.289506]
   },
   {
     "city_name": "坂出市",
     "romaji": "sakaide",
     "area": 92.46,
-    "population": 56.351
+    "population": 56.351,
+    "location": [133.86051, 34.316319]
   },
   {
     "city_name": "善通寺市",
     "romaji": "zentsuji",
     "area": 39.88,
-    "population": 33.419
+    "population": 33.419,
+    "location": [133.787113, 34.228533]
   },
   {
     "city_name": "観音寺市",
     "romaji": "kanonji",
     "area": 117.47,
-    "population": 63.349
+    "population": 63.349,
+    "location": [133.661517, 34.127436]
   },
   {
     "city_name": "さぬき市",
     "romaji": "sanuki",
     "area": 158.90,
-    "population": 52.637
+    "population": 52.637,
+    "location": [134.17212, 34.325207]
   },
   {
     "city_name": "東かがわ市",
     "romaji": "higashikagawa",
     "area": 153.35,
-    "population": 34.243
+    "population": 34.243,
+    "location": [134.35882, 34.243806]
   },
   {
     "city_name": "三豊市",
     "romaji": "mitoyo",
     "area": 222.66,
-    "population": 69.812
+    "population": 69.812,
+    "location": [133.715219, 34.182547]
   },
   {
     "city_name": "土庄町",
     "romaji": "tonosho",
     "area": 74.39,
-    "population": 15.557
+    "population": 15.557,
+    "location": [134.185807, 34.486022]
   },
   {
     "city_name": "小豆島町",
     "romaji": "shodoshima",
     "area": 95.63,
-    "population": 16.221
+    "population": 16.221,
+    "location": [134.233596, 34.481998]
   },
   {
     "city_name": "三木町",
     "romaji": "miki",
     "area": 75.78,
-    "population": 28.809
+    "population": 28.809,
+    "location": [134.134293, 34.268284]
   },
   {
     "city_name": "直島町",
     "romaji": "naoshima",
     "area": 14.23,
-    "population": 3.223
+    "population": 3.223,
+    "location": [133.995689, 34.459703]
   },
   {
     "city_name": "宇多津町",
     "romaji": "utazu",
     "area": 8.07,
-    "population": 17.549
+    "population": 17.549,
+    "location": [133.825513, 34.310298]
   },
   {
     "city_name": "綾川町",
     "romaji": "ayagawa",
     "area": 109.67,
-    "population": 25.150
+    "population": 25.150,
+    "location": [133.923066, 34.249627]
   },
   {
     "city_name": "琴平町",
     "romaji": "kotohira",
     "area": 8.46,
-    "population": 10.060
+    "population": 10.060,
+    "location": [133.823303, 34.191417]
   },
   {
     "city_name": "多度津町",
     "romaji": "tadotsu",
     "area": 24.34,
-    "population": 23.590
+    "population": 23.590,
+    "location": [133.753605, 34.272488]
   },
   {
     "city_name": "まんのう町",
     "romaji": "manno",
     "area": 194.33,
-    "population": 19.855
+    "population": 19.855,
+    "location": [133.841402, 34.192329]
   }
 ]
