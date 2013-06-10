@@ -1,0 +1,22 @@
+svg {
+  border: solid 1px #ccc;
+}
+
+.background {
+  fill: none;
+  pointer-events: all;
+}
+
+#areas {
+  fill: #aaa;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+#areas .active {
+  fill: #77a;
+}
+
+#cities {
+  fill: red;
+}
