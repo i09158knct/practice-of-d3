@@ -20,3 +20,8 @@ svg {
 #cities {
   fill: red;
 }
+
+#cities text {
+  font-size: 80%;
+  fill: black;
+}
