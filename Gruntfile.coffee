@@ -16,10 +16,11 @@ module.exports = (grunt) ->
 
     exec:
       base_command: 'python -m SimpleHTTPServer'
-
       server: command: '<%= exec.base_command %>'
       server_background: command: '<%= exec.base_command %> &'
 
+      build_index_page:
+        command: 'coffee scripts/build-index-page.coffee html > html/index.html'
 
 
   grunt.loadNpmTasks task for task in [
@@ -57,6 +58,9 @@ module.exports = (grunt) ->
 
   grunt.registerTask name, targets for name, targets of {
     'initialize': ['copy-components']
+    'build': [
+      'exec:build_index_page'
+    ]
     'server': ['exec:server']
     'default': [
       'livereload-start'
