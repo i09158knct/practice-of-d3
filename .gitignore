@@ -1,3 +1,6 @@
 components
 node_modules
 tmp
+public/js/vendor
+public/css/vendor
+www

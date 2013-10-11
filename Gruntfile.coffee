@@ -5,7 +5,7 @@ module.exports = (grunt) ->
     regarde:
       livereload:
         files: [
-          'html/**/*'
+          'public/**/*'
         ]
         tasks: ['livereload']
 
@@ -15,12 +15,12 @@ module.exports = (grunt) ->
 
 
     exec:
-      base_command: 'python -m SimpleHTTPServer'
-      server: command: '<%= exec.base_command %>'
-      server_background: command: '<%= exec.base_command %> &'
+      server_base_command: 'harp server'
+      server: command: '<%= exec.server_base_command %>'
+      server_background: command: '<%= exec.server_base_command %> &'
 
-      build_index_page:
-        command: 'coffee scripts/build-index-page.coffee html > html/index.html'
+      harp_compile: command: 'harp compile'
+
 
 
   grunt.loadNpmTasks task for task in [
@@ -40,7 +40,7 @@ module.exports = (grunt) ->
         grunt.file.copy source, "#{pathName}/#{fileName}"
 
     ) for pathName, sources of {
-      'html/js/vendor': [
+      'public/js/vendor': [
         'components/backbone/backbone.js'
         'components/underscore/underscore.js'
         'components/underscore.string/lib/underscore.string.js'
@@ -48,9 +48,9 @@ module.exports = (grunt) ->
         'components/d3/d3.js'
         'components/coffee-script/extras/coffee-script.js'
       ]
-      'html/css/vendor': [
+      'public/css/vendor': [
       ]
-      'html/img': [
+      'public/img': [
       ]
     }
 
@@ -59,7 +59,7 @@ module.exports = (grunt) ->
   grunt.registerTask name, targets for name, targets of {
     'initialize': ['copy-components']
     'build': [
-      'exec:build_index_page'
+      'exec:harp_compile'
     ]
     'server': ['exec:server']
     'default': [
