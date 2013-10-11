@@ -39,12 +39,12 @@ module.exports = (grunt) ->
 
     ) for pathName, sources of {
       'public/js/vendor': [
-        'components/backbone/backbone.js'
-        'components/underscore/underscore.js'
-        'components/underscore.string/lib/underscore.string.js'
-        'components/jquery/jquery.js'
-        'components/d3/d3.js'
-        'components/coffee-script/extras/coffee-script.js'
+        'bower_components/backbone/backbone.js'
+        'bower_components/underscore/underscore.js'
+        'bower_components/underscore.string/lib/underscore.string.js'
+        'bower_components/jquery/jquery.js'
+        'bower_components/d3/d3.js'
+        'bower_components/coffee-script/extras/coffee-script.js'
       ]
       'public/css/vendor': [
       ]
