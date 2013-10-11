@@ -2,16 +2,15 @@ path = require 'path'
 
 module.exports = (grunt) ->
   grunt.initConfig
-    regarde:
+    watch:
       livereload:
         files: [
-          'public/**/*'
+          '**/*'
+          '!data/**/*'
         ]
-        tasks: ['livereload']
-
-
-    livereload:
-      port: 35729
+        options:
+          cwd: 'public'
+          livereload: true
 
 
     exec:
@@ -25,8 +24,7 @@ module.exports = (grunt) ->
 
   grunt.loadNpmTasks task for task in [
     'grunt-exec'
-    'grunt-regarde'
-    'grunt-contrib-livereload'
+    'grunt-contrib-watch'
   ]
 
 
@@ -63,8 +61,7 @@ module.exports = (grunt) ->
     ]
     'server': ['exec:server']
     'default': [
-      'livereload-start'
       'exec:server_background'
-      'regarde'
+      'watch'
     ]
   }
