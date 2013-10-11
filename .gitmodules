@@ -1,3 +1,3 @@
-[submodule "data/geo/world"]
-	path = data/geo/world
+[submodule "public/data/geo/world"]
+	path = public/data/geo/world
 	url = git://github.com/johan/world.geo.json.git
