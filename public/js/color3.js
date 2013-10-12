@@ -21,11 +21,11 @@ svg.append('rect')
 var areas = svg.append('g')
   .attr('id', 'areas')
 
-d3.json('../data/city/kagawa.json', function(err, areasJSON) {
+d3.json('data/city/kagawa.json', function(err, areasJSON) {
   window.cityTable = buildCityTable(areasJSON);
   window.color = buildColorScale(areasJSON);
 
-  d3.json('../data/geo/kagawa0.001.json', function(err, json) {
+  d3.json('data/geo/kagawa0.001.json', function(err, json) {
     var groups = _.pairs(_.groupBy(json.features, function(f) {
       return f.properties['N03_004']
     })).map(function(pair) {
