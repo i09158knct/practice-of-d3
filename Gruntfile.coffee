@@ -7,6 +7,10 @@ module.exports = (grunt) ->
         files: [
           '**/*'
           '!data/**/*'
+          '!index.ejs'
+        ]
+        tasks: [
+          'exec:build_index_page'
         ]
         options:
           cwd: 'public'
@@ -18,7 +22,10 @@ module.exports = (grunt) ->
       server: command: '<%= exec.server_base_command %>'
       server_background: command: '<%= exec.server_base_command %> &'
 
-      harp_compile: command: 'harp compile'
+      build_index_page:
+        command: 'coffee scripts/build-index-page.coffee public > public/index.ejs'
+      harp_compile:
+        command: 'harp compile'
 
 
 
@@ -55,8 +62,12 @@ module.exports = (grunt) ->
 
 
   grunt.registerTask name, targets for name, targets of {
-    'initialize': ['copy-components']
+    'initialize': [
+      'copy-components'
+      'exec:build_index_page'
+    ]
     'build': [
+      'initialize'
       'exec:harp_compile'
     ]
     'server': ['exec:server']

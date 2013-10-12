@@ -1,30 +1,23 @@
 fs   = require 'fs'
-jade = require 'jade'
 
 dir = process.argv[2]
 files = fs.readdirSync(dir).filter (file) ->
-  file.match(/.html$/) &&
-  ['index.html', 'skeleton.html'].indexOf(file) == -1
+  [
+    /^_/
+    /^css$/
+    /^data$/
+    /^img$/
+    /^js$/
+    /^index.ejs$/
+  ].every (pattern) ->
+    !file.match(pattern)
 
-opts =
-  pretty: true
-
-locals =
-  files: files
-
-
-html = jade.compile("""
-doctype 5
-html
-  head
-    title Index
-
-  body
-    h1 Programs
-    ul
-      each file in files
-        li
-          a(href=file)= file
-""", opts)(locals)
-
-console.log html
+console.log """
+<h1>Programs</h1>
+<ul>
+  <% #{ JSON.stringify(files) }.forEach(function(file) { %>
+    <% var filename = file.replace(/\.(ejs|jade)$/, '.html'); %>
+    <li><a href="<%= filename %>"><%= filename %></a></li>
+  <% }); %>
+</ul>
+"""

@@ -1,24 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>D3</title>
-  <link rel="stylesheet" href="css/main.css">
-  <script src="js/vendor/d3.js"></script>
-  <script src="js/vendor/jquery.js"></script>
-  <script src="js/vendor/underscore.js"></script>
-  <script src="js/vendor/underscore.string.js"></script>
-  <script src="js/vendor/backbone.js"></script>
-  <script src="js/vendor/coffee-script.js"></script>
-  <script>
-    window._s = _.string;
-  </script>
-</head>
-<body>
-<div class="main" id="main">
-  <svg class="map"></svg>
-</div>
-<script>
 var width = 700;
 var height = 470;
 
@@ -50,7 +29,8 @@ d3.json('../data/geo/kagawa0.001.json', function(err, json) {
     .data(json.features)
     .enter()
     .append('path')
-      .attr('d', path);
+      .attr('d', path)
+
 });
 
 d3.json('../data/city/kagawa.json', function(err, json) {
@@ -62,17 +42,28 @@ d3.json('../data/city/kagawa.json', function(err, json) {
       .attr('cy', function(datum) { return projection(datum.location)[1] })
       .attr('r', 3);
 
-  cities.selectAll('text')
+
+  var cityTable = buildCityTable(json);
+  var arc = d3.geo.greatArc()
+    .source(function(datum) { return datum.source.location })
+    .target(function(datum) { return datum.target.location });
+
+  cities.selectAll('g')
     .data(json)
-    .enter()
-    .append('text')
-      .attr('x', function(datum) { return projection(datum.location)[0] + 5 })
-      .attr('y', function(datum) { return projection(datum.location)[1] })
-      .text(function(datum) { return datum.city_name });
+    .enter().append('g').selectAll('path')
+      .data(function(datum) { return datum.connection.map(function(name) {
+        return arc({source: datum, target: cityTable[name]});
+      })})
+      .enter().append('path')
+        .attr('d', path)
+        .attr('stroke', 'gray')
+        .attr('stroke-width', 0.5);
 
 });
 
-
-</script>
-</body>
-</html>
+function buildCityTable(areasJSON) {
+  return areasJSON.reduce(function(acc, city) {
+    acc[city['city_name']] = city;
+    return acc;
+  }, {});
+}

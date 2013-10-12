@@ -1,35 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>D3</title>
-  <link rel="stylesheet" href="css/main.css">
-  <script src="js/vendor/d3.js"></script>
-  <script src="js/vendor/jquery.js"></script>
-  <script src="js/vendor/underscore.js"></script>
-  <script src="js/vendor/underscore.string.js"></script>
-  <script src="js/vendor/backbone.js"></script>
-  <script src="js/vendor/coffee-script.js"></script>
-  <script>
-    window._s = _.string;
-  </script>
-</head>
-<body>
-<div class="main" id="main">
-  <svg class="map"></svg>
-  <div class="details"></div>
-</div>
-
-<script type="text/template" id="template_details">
-  <h3 class="city_name"><%= city_name %></h3>
-  <ul>
-    <li>面積: <%= area %></li>
-    <li>人口: <%= population %></li>
-    <li>人口密度: <%= population / area %></li>
-  </ul>
-</script>
-
-<script>
 var width = 700;
 var height = 470;
 
@@ -85,7 +53,14 @@ function buildMainViewClass(cityTable) {
       'mouseover .area': 'onAreaMouseover'
     },
     templates: {
-      details: _.template($('#template_details').text())
+      details: _.template(
+        '<h3 class="city_name"><%= city_name %></h3>' +
+        '<ul>' +
+        '  <li>面積: <%= area %></li>' +
+        '  <li>人口: <%= population %></li>' +
+        '  <li>人口密度: <%= population / area %></li>' +
+        '</u>'
+      )
     },
 
     onAreaMouseover: function(event) {
@@ -102,7 +77,3 @@ function buildMainViewClass(cityTable) {
     }
   });
 }
-
-</script>
-</body>
-</html>

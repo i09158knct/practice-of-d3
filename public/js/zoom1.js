@@ -1,24 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>D3</title>
-  <link rel="stylesheet" href="css/main.css">
-  <script src="js/vendor/d3.js"></script>
-  <script src="js/vendor/jquery.js"></script>
-  <script src="js/vendor/underscore.js"></script>
-  <script src="js/vendor/underscore.string.js"></script>
-  <script src="js/vendor/backbone.js"></script>
-  <script src="js/vendor/coffee-script.js"></script>
-  <script>
-    window._s = _.string;
-  </script>
-</head>
-<body>
-<div class="main" id="main">
-  <svg class="map"></svg>
-</div>
-<script>
 var width = 700;
 var height = 470;
 var centeredCity;
@@ -87,7 +66,3 @@ function click(datum) {
     .attr('transform', _s.sprintf('scale(%d)translate(%d,%d)', k, x, y))
     .style('stroke-width', (1.5 / k) + 'px');
 }
-
-</script>
-</body>
-</html>
