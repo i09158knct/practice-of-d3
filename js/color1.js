@@ -21,10 +21,10 @@ svg.append('rect')
 var areas = svg.append('g')
   .attr('id', 'areas')
 
-d3.json('../data/city/kagawa.json', function(err, areasJSON) {
+d3.json('data/city/kagawa.json', function(err, areasJSON) {
   window.cityTable = buildCityTable(areasJSON);
 
-  d3.json('../data/geo/kagawa0.001.json', function(err, json) {
+  d3.json('data/geo/kagawa0.001.json', function(err, json) {
     areas.selectAll('path')
       .data(json.features)
       .enter()

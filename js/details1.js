@@ -21,7 +21,7 @@ svg.append('rect')
 var areas = svg.append('g')
   .attr('id', 'areas');
 
-d3.json('../data/geo/kagawa0.001multi.json', function(err, json) {
+d3.json('data/geo/kagawa0.001multi.json', function(err, json) {
   areas.selectAll('path')
     .data(json.features)
     .enter()
@@ -33,7 +33,7 @@ d3.json('../data/geo/kagawa0.001multi.json', function(err, json) {
 
 
 
-d3.json('../data/city/kagawa.json', function(err, json) {
+d3.json('data/city/kagawa.json', function(err, json) {
   var cityTable = buildCityTable(json);
   var MainView = buildMainViewClass(cityTable);
   window.main = new MainView();

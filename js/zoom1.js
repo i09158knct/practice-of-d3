@@ -24,7 +24,7 @@ var g = svg.append('g')
   .append('g')
     .attr('id', 'areas');
 
-d3.json('../data/geo/kagawa0.001.json', function(err, geojson) {
+d3.json('data/geo/kagawa0.001.json', function(err, geojson) {
   g.selectAll('path')
     .data(geojson.features)
     .enter()

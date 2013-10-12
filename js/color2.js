@@ -21,7 +21,7 @@ svg.append('rect')
 var areas = svg.append('g')
   .attr('id', 'areas')
 
-d3.json('../data/geo/kagawa0.001.json', function(err, json) {
+d3.json('data/geo/kagawa0.001.json', function(err, json) {
   var groups = _.values(_.groupBy(json.features, function(f) {
     return f.properties['N03_004']
   }));
